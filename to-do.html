@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+  <style>
+    /* Your CSS styles here */
+  </style>
+</head>
+<body>
+  <h1>To-Do List</h1>
+  <input type="text" id="taskInput" placeholder="Add a new task...">
+  <ul id="taskList"></ul>
+
+  <script>
+    const input = document.getElementById('taskInput');
+    const taskList = document.getElementById('taskList');
+
+    function addTask() {
+      const task = input.value.trim();
+      if (task !== '') {
+        const li = document.createElement('li');
+        li.textContent = task;
+        taskList.appendChild(li);
+        input.value = '';
+      }
+    }
+
+    input.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        event.preventDefault(); // Prevents form submission or page reload
+        addTask();
+      }
+    });
+  </script>
+</body>
+</html>
